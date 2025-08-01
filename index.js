@@ -71,8 +71,19 @@ function playerWin(){
     }
 }
 
+let hasPlayed = false;
+
 document.querySelector(".playButton").addEventListener("click", () => {
-  playerOneImage();
-  playerTwoImage();
-  playerWin();
+  const button = document.querySelector(".playButton");
+
+  if (!hasPlayed) {
+    playerOneImage();
+    playerTwoImage();
+    playerWin();
+
+    button.textContent = "Play Again";
+    hasPlayed = true;
+  } else {
+    location.reload(); 
+  }
 });
